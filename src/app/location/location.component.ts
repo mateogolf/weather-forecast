@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import{WeatherService} from './../weather.service';
 import { ActivatedRoute } from '@angular/router';
 @Component({
@@ -19,22 +19,12 @@ export class LocationComponent implements OnInit {
   constructor(private _service: WeatherService, private _route: ActivatedRoute) {
     this._route.paramMap.subscribe(params => {
       this.city = params.get('city');
-      // console.log(this.city);
-    })
-  }
-  ngOnChanges(changes: SimpleChanges) {
-    this._route.paramMap.subscribe(params => {
-      this.city = params.get('city');
-      // console.log(this.city);
-    })
-    this._service.getWeatherAt(this.city, (weather) => {
-      this.cityJSON = weather;
+      this._service.getWeatherAt(this.city, (weather) => {
+        this.cityJSON = weather;
+      })
     })
   }
   ngOnInit() {
-    this._service.getWeatherAt(this.city,(weather)=>{
-      this.cityJSON = weather;
-    })
   }
 
 }
