@@ -1,0 +1,15 @@
+.content{
+    display: flex;
+    justify-content: space-between;
+}
+h1{
+    text-align: center;
+}
+fieldset{
+    padding: 20px;
+}
+img{
+    border: 1px solid grey;
+    width: 150px;
+    height: 150px;
+}
